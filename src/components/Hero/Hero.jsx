@@ -1,0 +1,55 @@
+import React from 'react';
+import { BsBuildings } from 'react-icons/bs';
+import { GiBoxUnpacking } from 'react-icons/gi';
+import { PiSuitcaseSimple } from 'react-icons/pi';
+import { SlMagnifier } from 'react-icons/sl';
+import { TfiSearch } from 'react-icons/tfi';
+
+const Hero = () => {
+    return (
+        <div className="h-[700px] relative bg-[url(/assets/banner.jpeg)] bg-cover bg-center">
+            <div className='bg-black opacity-70 h-full w-full absolute'></div>
+            <div className="flex flex-col gap-10 relative items-center justify-center h-full text-center z-10 text-white">
+                <div >
+                    <h1 className="text-7xl font-bold exo2">
+                        Your Career's <span className="text-primary">Opportunity</span>
+                    </h1>
+                    <p className='mt-4 text-lg'>2400 Peoples are daily search in this portal, 100 user added job portal!</p>
+                </div>
+                <div className='grid grid-cols-4 gap-10'>
+                    <div className='flex items-center gap-4'>
+                        <div className='text-primary border border-primary p-3'><PiSuitcaseSimple size={40} /></div>
+                        <div className='text-2xl'>
+                            <h3 >Live Jobs</h3>
+                            <span className='text-primary'>2000+</span>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-4'>
+                        <div className='text-primary border border-primary p-3'><BsBuildings size={40} /></div>
+                        <div className='text-2xl'>
+                            <h3 >Live Jobs</h3>
+                            <span className='text-primary'>2000+</span>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-4'>
+                        <div className='text-primary border border-primary p-3'><SlMagnifier  size={40} /></div>
+                        <div className='text-2xl'>
+                            <h3 >Live Jobs</h3>
+                            <span className='text-primary'>2000+</span>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-4'>
+                        <div className='text-primary border border-primary p-3'><GiBoxUnpacking size={40} /></div>
+                        <div className='text-2xl'>
+                            <h3 >Live Jobs</h3>
+                            <span className='text-primary'>2000+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    );
+};
+
+export default Hero;
