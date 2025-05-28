@@ -1,7 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 
 const Navbar = () => {
+    const navigate = useNavigate();
 
     const links = <>
         <NavLink to="/">Home</NavLink>
@@ -36,8 +37,8 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <div className='gap-4 flex'>
-                        <button className='border border-primary text-primary px-8 py-2 font-medium rounded-sm'>Login</button>
-                        <button className='bg-primary text-white px-8 py-2 font-medium rounded-sm'>Registier</button>
+                        <button onClick={()=>navigate('/auth/login')} className='border border-primary text-primary px-8 py-2 font-medium rounded-sm'>Login</button>
+                        <button onClick={()=>navigate('/auth/registration')} className='bg-primary text-white px-8 py-2 font-medium rounded-sm'>Registier</button>
                     </div>
                 </div>
             </div>

@@ -46,6 +46,12 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
+                <div className='min-w-4xl'>
+                    <div className='flex items-center justify-between p-5 gap-5 bg-white h-24 rounded-md w-full'>
+                        <input className='bg-slate-200 h-full w-full rounded-sm focus:outline-primary placeholder:text-primary px-4 text-primary' type="text" name="" placeholder='Search Jobs' />
+                        <button className='bg-primary px-8 h-full flex items-center gap-2 rounded-sm' type="submit"><SlMagnifier /> Search</button>
+                    </div>
+                </div>
             </div>
         </div>
 
