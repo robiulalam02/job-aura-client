@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink, useNavigate } from 'react-router';
+import { AuthContext } from '../../provider/AuthContext';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const { profile, userSignOut } = use(AuthContext)
+    console.log(profile);
+
+    const handleSignOut = () => {
+        userSignOut()
+            .then(() => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "user signout successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+    }
 
     const links = <>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/">Find Jobs</NavLink>
-        <NavLink to="/">Create Jobs</NavLink>
-        <NavLink to="/">Contact</NavLink>
+        <NavLink to="/findJobs">Find Jobs</NavLink>
+        <NavLink to="/createJobs">Create Jobs</NavLink>
+        <NavLink to="/contuct">Contact</NavLink>
     </>
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm py-5">
+            <div className="navbar bg-base-100 shadow-sm py-5 px-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,8 +54,20 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <div className='gap-4 flex'>
-                        <button onClick={()=>navigate('/auth/login')} className='border border-primary text-primary px-8 py-2 font-medium rounded-sm'>Login</button>
-                        <button onClick={()=>navigate('/auth/registration')} className='bg-primary text-white px-8 py-2 font-medium rounded-sm'>Registier</button>
+                        {
+                            profile ?
+                                <div className='flex items-center gap-4'>
+                                    <button>
+                                        <img className='w-12 h-12' src={profile.photoURL} alt="" />
+                                    </button>
+                                    <button onClick={handleSignOut} className='bg-primary text-white px-8 py-2 font-medium rounded-sm'>Logout</button>
+                                </div>
+                                :
+                                <div className='flex items-center gap-4'>
+                                    <button onClick={() => navigate('/auth/login')} className='border border-primary text-primary px-8 py-2 font-medium rounded-sm'>Login</button>
+                                    <button onClick={() => navigate('/auth/registration')} className='bg-primary text-white px-8 py-2 font-medium rounded-sm'>Registier</button>
+                                </div>
+                        }
                     </div>
                 </div>
             </div>

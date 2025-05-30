@@ -1,9 +1,9 @@
 import React from 'react';
+import CountUp from 'react-countup';
 import { BsBuildings } from 'react-icons/bs';
 import { GiBoxUnpacking } from 'react-icons/gi';
 import { PiSuitcaseSimple } from 'react-icons/pi';
 import { SlMagnifier } from 'react-icons/sl';
-import { TfiSearch } from 'react-icons/tfi';
 
 const Hero = () => {
     return (
@@ -21,28 +21,40 @@ const Hero = () => {
                         <div className='text-primary border border-primary p-3'><PiSuitcaseSimple size={40} /></div>
                         <div className='text-2xl'>
                             <h3 >Live Jobs</h3>
-                            <span className='text-primary'>2000+</span>
+                            <span className='text-primary font-medium'>
+                                <CountUp end={2000} />
+                                +
+                            </span>
                         </div>
                     </div>
                     <div className='flex items-center gap-4'>
                         <div className='text-primary border border-primary p-3'><BsBuildings size={40} /></div>
                         <div className='text-2xl'>
-                            <h3 >Live Jobs</h3>
-                            <span className='text-primary'>2000+</span>
+                            <h3 >Companies</h3>
+                            <span className='text-primary font-medium'>
+                                <CountUp end={1100} />
+                                +
+                            </span>
                         </div>
                     </div>
                     <div className='flex items-center gap-4'>
-                        <div className='text-primary border border-primary p-3'><SlMagnifier  size={40} /></div>
+                        <div className='text-primary border border-primary p-3'><SlMagnifier size={40} /></div>
                         <div className='text-2xl'>
-                            <h3 >Live Jobs</h3>
-                            <span className='text-primary'>2000+</span>
+                            <h3 >Candidates</h3>
+                            <span className='text-primary font-medium'>
+                                <CountUp end={3000} />
+                                +
+                            </span>
                         </div>
                     </div>
                     <div className='flex items-center gap-4'>
                         <div className='text-primary border border-primary p-3'><GiBoxUnpacking size={40} /></div>
                         <div className='text-2xl'>
-                            <h3 >Live Jobs</h3>
-                            <span className='text-primary'>2000+</span>
+                            <h3 >New Jobs</h3>
+                            <span className='text-primary font-medium'>
+                                <CountUp end={300} />
+                                +
+                            </span>
                         </div>
                     </div>
                 </div>
