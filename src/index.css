@@ -12,6 +12,7 @@
   default: true;
   --color-primary: #289db9;
   --color-secondary: #3f5965;
+  --color-primary-content: #289cb93f;
 }
 
 *{
