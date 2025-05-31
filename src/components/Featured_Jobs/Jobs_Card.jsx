@@ -2,8 +2,10 @@ import React from 'react';
 import { IoIosArrowDropright } from 'react-icons/io';
 import { IoBookmarkOutline } from 'react-icons/io5';
 import { MdOutlineDoubleArrow } from 'react-icons/md';
+import { useNavigate } from 'react-router';
 
 const Jobs_Card = ({ job }) => {
+    const navigate = useNavigate();
     console.log(job);
     return (
         <div className='bg-white p-5 rounded-r-md border-l-2 border-primary-content hover:border-primary transition-all duration-150 ease-in-out cursor-pointer'>
@@ -40,7 +42,7 @@ const Jobs_Card = ({ job }) => {
                     }
                 </ul>
             </div>
-            <button className='text-primary exo2'>Apply Now</button>
+            <button onClick={() => navigate(`/jobs/${job._id}`)} className='text-primary exo2'>Apply Now</button>
         </div>
     );
 };
