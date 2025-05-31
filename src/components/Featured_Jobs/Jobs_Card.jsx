@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router';
 
 const Jobs_Card = ({ job }) => {
     const navigate = useNavigate();
-    console.log(job);
     return (
         <div className='bg-white p-5 rounded-r-md border-l-2 border-primary-content hover:border-primary transition-all duration-150 ease-in-out cursor-pointer'>
             <div className='flex items-center gap-5 '>

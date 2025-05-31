@@ -3,13 +3,14 @@ import loginAnimation from '../../assets/Animation - 1748369478870.json'
 import Lottie from 'lottie-react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../provider/AuthContext';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
 
     const { userSignIn, googleSignIn } = use(AuthContext)
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -30,7 +31,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate('/');
+                navigate(`${location.state ? location.state : '/'}`);
                 e.target.reset();
             })
     }
@@ -45,7 +46,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate('/');
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch((error) => {
                 console.log(error);
