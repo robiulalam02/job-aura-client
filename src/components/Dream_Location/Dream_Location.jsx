@@ -10,7 +10,7 @@ const Dream_Location = () => {
         <div className='bg-slate-100 h-[600px] my-20'>
             <div className='max-w-screen-xl mx-auto py-20'>
                 <div>
-                    <h2 className='text-4xl font-semibold exo2 mb-4'>Our Working <span className='text-primary'>Process</span></h2>
+                    <h2 className='text-4xl font-bold exo2 mb-4'>Get Job With <span className='text-primary font-semibold'>Dream Location</span></h2>
                     <div className='flex justify-between'>
                         <p className='text-md'>To choose your trending job dream & to make future bright.</p>
                         <div class="flex gap-2">

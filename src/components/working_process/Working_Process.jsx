@@ -4,7 +4,7 @@ const Working_Process = () => {
     return (
         <div className='my-20 max-w-screen-xl mx-auto'>
             <div className='text-center'>
-                <h2 className='text-4xl font-semibold exo2 mb-4'>Our Working <span className='text-primary'>Process</span></h2>
+                <h2 className='text-4xl font-bold exo2 mb-4'>Our Working <span className='text-primary font-semibold'>Process</span></h2>
                 <p className='text-md'>To choose your trending job dream & to make future bright.</p>
                 {/* <span>&#8594;</span> */}
             </div>
