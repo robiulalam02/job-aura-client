@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthContext';
 import Swal from 'sweetalert2';
 
@@ -29,7 +29,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm py-5 px-4">
+            <div className="navbar bg-base-100 shadow-sm py-3 px-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,9 +57,15 @@ const Navbar = () => {
                         {
                             profile ?
                                 <div className='flex items-center gap-4'>
-                                    <button>
-                                        <img className='w-12 h-12' src={profile.photoURL} alt="" />
-                                    </button>
+                                    <div className='dropdown w-12 h-12'>
+                                        <button>
+                                            <img className='w-full h-full' src={profile.photoURL} alt="" />
+                                        </button>
+                                        <ul className="menu relative right-5 dropdown-content bg-base-100 rounded-box z-1 w-52 shadow-sm p-3 gap-2">
+                                            <Link to="/">my profile</Link>
+                                            <Link to="/myApplications">my applications</Link>
+                                        </ul>
+                                    </div>
                                     <button onClick={handleSignOut} className='bg-primary text-white px-8 py-2 font-medium rounded-sm'>Logout</button>
                                 </div>
                                 :
