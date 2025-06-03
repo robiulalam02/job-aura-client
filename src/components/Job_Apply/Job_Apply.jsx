@@ -15,6 +15,8 @@ const Job_Apply = () => {
 
     const { profile } = use(AuthContext);
     const { id } = useParams();
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-GB');
 
     const handleApplyJob = e => {
         e.preventDefault();
@@ -24,7 +26,8 @@ const Job_Apply = () => {
 
         const application = {
             jobId: id,
-            ...applyDetails
+            ...applyDetails,
+            applyDate: formattedDate
         }
 
         console.log(application);

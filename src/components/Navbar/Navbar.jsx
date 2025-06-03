@@ -24,7 +24,14 @@ const Navbar = () => {
     const links = <>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/findJobs">Find Jobs</NavLink>
-        <NavLink to="/createJobs">Create Jobs</NavLink>
+        {
+            profile &&
+            <NavLink to="/myJobs">My Jobs</NavLink>
+        }
+        {
+            profile &&
+            <NavLink to="/addJobs">Add Jobs</NavLink>
+        }
         <NavLink to="/contuct">Contact</NavLink>
     </>
     return (
@@ -58,9 +65,18 @@ const Navbar = () => {
                             profile ?
                                 <div className='flex items-center gap-4'>
                                     <div className='dropdown w-12 h-12'>
-                                        <button>
-                                            <img className='w-full h-full' src={profile.photoURL} alt="" />
-                                        </button>
+                                        <div className='h-full w-full overflow-hidden rounded-full'>
+                                            {
+                                                profile.photoURL ?
+                                                    <button className='w-full h-full object-cover'>
+                                                        <img src={profile.photoURL} alt="" />
+                                                    </button>
+                                                    :
+                                                    <button className='w-full h-full bg-amber-600 flex items-center justify-center text-white text-xl object-cover'>
+                                                        {profile.displayName[0]}
+                                                    </button>
+                                            }
+                                        </div>
                                         <ul className="menu relative right-5 dropdown-content bg-base-100 rounded-box z-1 w-52 shadow-sm p-3 gap-2">
                                             <Link to="/">my profile</Link>
                                             <Link to="/myApplications">my applications</Link>

@@ -4,11 +4,13 @@ import loginAnimation from '../../assets/Animation - 1748369478870.json'
 import { AuthContext } from '../../provider/AuthContext';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Registration = () => {
 
-    const { userSignUp, googleSignIn } = use(AuthContext)
+    const { userSignUp, googleSignIn, updateUserProfile } = use(AuthContext);
     const [showPass, setShowPass] = useState(false);
+    const navigate = useNavigate();
 
     const handleUserSignUp = e => {
         e.preventDefault();
@@ -16,7 +18,7 @@ const Registration = () => {
         const form = new FormData(e.target);
         const userDetails = Object.fromEntries(form.entries());
 
-        const { email, password } = userDetails;
+        const { email, password, name } = userDetails;
 
         // sign up user using firebase auth
 
@@ -26,6 +28,7 @@ const Registration = () => {
                     axios.post('http://localhost:3000/users', userDetails)
                         .then(data => {
                             if (data.data.insertedId) {
+                                updateUserProfile(name)
                                 Swal.fire({
                                     position: "center",
                                     icon: "success",
@@ -34,6 +37,7 @@ const Registration = () => {
                                     timer: 1500
                                 });
                                 e.target.reset();
+                                navigate('/');
                             }
                         })
                 }
@@ -53,6 +57,7 @@ const Registration = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate('/');
             })
             .catch((error) => {
                 console.log(error);

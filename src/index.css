@@ -31,3 +31,23 @@ button{
 a.active{
   color: #289db9;
 }
+
+.multistep {
+  width: 100% !important;       /* force full width */
+  max-width: none !important;   /* remove max width */
+  min-width: 0 !important;      /* reset min width */
+}
+
+.multistep ol {
+  width: 100% !important;       /* let ol take full width */
+  display: flex !important;      /* use flex so li's arrange horizontally */
+  justify-content: space-between !important; /* space out li steps */
+  padding-left: 0 !important;    /* reset default padding */
+}
+
+.multistep ol li {
+  flex: 1 1 auto !important;     /* allow each step li to grow */
+  max-width: none !important;    /* remove max width limit */
+  min-width: 0 !important;       /* reset min width */
+  width: auto !important;        /* remove fixed width */
+}

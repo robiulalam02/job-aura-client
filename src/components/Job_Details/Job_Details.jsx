@@ -70,8 +70,8 @@ const Job_Details = () => {
                     <button onClick={()=> navigate(`/jobApply/${jobData._id}`)} className='bg-primary px-8 py-2 rounded-sm text-white'>Apply Job</button>
                 </div>
             </div>
-            <div className='flex justify-between gap-5 mt-10'>
-                <div className='space-y-5 w-8/12'>
+            <div className='flex justify-between mt-10 gap-4'>
+                <div className='space-y-5 w-full'>
                     <div>
                         <span className='font-semibold'>Job Description:   </span>
                         <span>{jobData.description}</span>
@@ -94,7 +94,7 @@ const Job_Details = () => {
                         </ul>
                     </div>
                 </div>
-                <div className='w-4/12 bg-gray-100 border-t-5 py-14 px-8 rounded-sm border-primary'>
+                <div className='w-6/12 bg-gray-100 border-t-5 py-14 px-8 rounded-sm border-primary'>
                     <h3 className='font-semibold text-md'>Job Summary:</h3>
                     <div className='mt-5 flex flex-col gap-3'>
                         <div className='flex items-center gap-2'>
